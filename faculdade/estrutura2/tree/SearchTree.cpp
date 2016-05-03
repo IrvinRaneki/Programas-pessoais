@@ -43,19 +43,21 @@ void SearchTree::deleteNode(Node*& tree){
     delete tree;
   }
   else{
-
+    getSuccessor(tree, tree->label);
   }
 }
 ///////////////////////////////////////////
 void SearchTree::getSuccessor(Node* tree, ItemType& data){
-  Node *location;
+  Node *location, *temp;
+  temp = new Node;
   location = new Node;
   location = tree->direita;
   while (location->esquerda != NULL) {
+    temp = location;
     location = location->esquerda;
   }
-  retrieveItem(location, location->label);
-  delete location;
+  std::cout << location->label << std::endl;
+  std::cout << temp->label << std::endl;
 }
 ///////////////////////////////////////////
 void SearchTree::retrieveItem(Node* tree, ItemType& item, bool& found) const{
