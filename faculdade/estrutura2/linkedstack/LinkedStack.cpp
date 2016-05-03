@@ -50,5 +50,5 @@ bool GenericStack::isFull() const {
     return false;
   } catch(std::bad_alloc exception){
     return true;
-  }  
+  }
 }
