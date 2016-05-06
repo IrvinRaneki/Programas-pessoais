@@ -15,7 +15,7 @@ def random_gen():
             val =7
         #val = raw_input()
         pause=random.randint(0,5)
-        print pause
+        #print pause
         time.sleep(pause)
         yield val
         #time.sleep(0.1)

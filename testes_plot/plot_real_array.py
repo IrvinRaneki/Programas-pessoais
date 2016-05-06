@@ -23,6 +23,6 @@ class App(threading.Thread):
 app = App()
 print('Now we can continue running code while mainloop runs!')
 
-for i in range(100000):
+for i in range(100):
     print(i)
     time.sleep(0.1)

@@ -22,6 +22,8 @@ def plota_graf(addr, num):
     while num != 'exit':
         a1.appendleft(next(d))
         datatoplot = a1.pop()
+        print a1
+
         line.set_ydata(a1)
         plt.draw()
         print 'recebido: ',a1[0]
@@ -43,6 +45,7 @@ def conect(addr, recebe):
         if recebe != 'exit':
             yield recebe
     serv_socket.close()
+
 
 ##################################################################
 #                           funcao main                          #
