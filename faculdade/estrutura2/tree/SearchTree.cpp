@@ -1,22 +1,28 @@
 #include "SearchTree.h"
-
 bool SearchTree::isEmpty() const{
   return root==NULL;
 }
 ////////////////////////////////////////////
 void SearchTree::deleteItem(Node*& tree, ItemType item){
+  Node *location;
+  location = new Node;
+  location = tree;
   if (isEmpty()){
     tree = NULL;
   }
   else{
-    if (item < tree->label){
-      deleteItem(tree->esquerda, item);
-    }
-    if (item > tree->label){
-      deleteItem(tree->direita, item);
+    if(item!= location->label){
+      if (item < location->label){
+        location = location->esquerda;
+        deleteItem(location, item);
+      }
+      else{
+        location = location->direita;
+        deleteItem(location, item);
+      }
     }
     else{
-      deleteNode(tree);
+      deleteNode(location);
     }
   }
 }
@@ -35,7 +41,11 @@ void SearchTree::insertItem(Node*& tree, ItemType item){
 }
 ///////////////////////////////////////////
 void SearchTree::destroyTree(Node*& tree){
-
+  if (tree != NULL){
+    destroyTree(tree->esquerda);
+    destroyTree(tree->direita);
+    deleteNode(tree);
+  }
 }
 ///////////////////////////////////////////
 void SearchTree::deleteNode(Node*& tree){
@@ -51,15 +61,44 @@ void SearchTree::getSuccessor(Node* tree, ItemType& data){
   Node *location, *temp;
   temp = new Node;
   location = new Node;
-  location = tree->direita;
+  location = tree;
+
+  bool flag;
+  if (location->direita!=NULL){
+    location = location->direita;
+  }
   while (location->esquerda != NULL) {
     temp = location;
     location = location->esquerda;
   }
-  std::cout << location->label << std::endl;
-  std::cout << temp->label << std::endl;
+  retrieveItem(tree, location->label, flag);
+  deleteItem(location,location->label);
 }
 ///////////////////////////////////////////
 void SearchTree::retrieveItem(Node* tree, ItemType& item, bool& found) const{
-
+  tree->label = item;
+}
+///////////////////////////////////////////
+void SearchTree::printPreOrder(Node* tree)  const{
+  if (tree != NULL){
+    std::cout << tree->label;
+    printPreOrder(tree->esquerda);
+    printPreOrder(tree->direita);
+  }
+}
+///////////////////////////////////////////
+void SearchTree::printInOrder(Node* tree)   const{
+  if (tree != NULL){
+    printInOrder(tree->esquerda);
+    std::cout << tree->label;
+    printInOrder(tree->direita);
+  }
+}
+///////////////////////////////////////////
+void SearchTree::printPostOrder(Node* tree) const{
+  if (tree != NULL){
+    printPostOrder(tree->esquerda);
+    printPostOrder(tree->direita);
+    std::cout << tree->label;
+  }
 }

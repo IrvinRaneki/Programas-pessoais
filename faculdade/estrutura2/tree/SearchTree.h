@@ -105,21 +105,26 @@ class SearchTree
 
   // Procure o sucessor do no atual na arvore. Em outras palavras,
   // procure o no mais a esquerda da arvore da direita.
-  void getSuccessor(Node* tree, ItemType& item);
+  void getSuccessor(Node* tree, ItemType& data);
 
 
-  // Ignore este metodo, jah esta completamente implementado.
-  void printTree(Node* tree) const
+  void printTree(Node *tree) const
   {
-    if (tree != NULL)
-      {
-      	printTree(tree->esquerda);
-      	std::cout << tree->label;
-      	printTree(tree->direita);
-      }
+
+    std::cout << "Pre:  ";
+    printPreOrder(tree);
+    std::cout << std::endl;
+    std::cout << "In:   ";
+    printInOrder(tree);
+    std::cout << std::endl;
+    std::cout << "Post: ";
+    printPostOrder(tree);
+    std::cout << std::endl;
   }
 
-
+  void printPreOrder(Node* tree)  const;
+  void printInOrder(Node* tree)   const;
+  void printPostOrder(Node* tree) const;
 
   // Nossa estrutura de dados. Raiz da arvore binaria de busca.
   Node* root;
