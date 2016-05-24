@@ -63,15 +63,14 @@ void AVLSearchTree::printPostOrder(Node* tree) const{
 }
 
 void AVLSearchTree::insertItem(Node*& tree, ItemType item, bool& isTaller){
-  if(isEmpty()){
+  if(tree==NULL){
     tree = new Node;
     tree->label = item;
   } else{
-    bool flag;
     if(item<=tree->label){
-      insertItem(tree->esquerda, item, flag);
+      insertItem(tree->esquerda, item, isTaller);
     } else{
-      insertItem(tree->direita, item, flag);
+      insertItem(tree->direita, item, isTaller);
     }
   }
 }
