@@ -74,12 +74,42 @@ void AVLSearchTree::insertItem(Node*& tree, ItemType item, bool& isTaller){
     }
   }
 }
+
+void AVLSearchTree::deleteItem(Node*& tree, ItemType item, bool& isShorter){
+  Node *location;
+  location=new Node;
+  location=tree;
+  if (isEmpty()){
+    tree = NULL;
+  } else{
+    if(item!= location->label){
+      if(item<location->label){
+        location = location->esquerda;
+        deleteItem(location, item, isShorter);
+      } else{
+        location = location->direita;
+        deleteItem(location, item, isShorter);
+      }
+    } else{
+      deleteNode(location, isShorter);
+    }
+  }
+}
+
+void AVLSearchTree::deleteNode(Node*& tree, bool& isShorter){
+  if(tree->esquerda == NULL && tree->direita == NULL){
+    delete tree;
+  } else{
+    if(tree->esquerda == NULL && tree->direita != NULL){
+      tree=tree->direita;
+    }
+    if(tree->esquerda != NULL && tree->direita == NULL){
+      tree=tree->esquerda;
+    }
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
-
-
-void AVLSearchTree::deleteItem(Node*& tree, ItemType item, bool& isShorter){}
-void AVLSearchTree::deleteNode(Node*& tree, bool& isShorter){}
-
 
 void AVLSearchTree::rotateToLeft(Node*& tree) const{}
 void AVLSearchTree::rotateToRight(Node*& tree) const{}
