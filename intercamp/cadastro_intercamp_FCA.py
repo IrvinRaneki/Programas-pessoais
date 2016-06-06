@@ -1,5 +1,5 @@
 #!/bin/python
-#   coding: utf-8
+#coding: utf-8
 
 import time
 import webbrowser
@@ -53,7 +53,7 @@ def lookup(driver, data):
 if __name__ == "__main__":
 
     for ano in range(2016,2017):
-        for mes in range(6,7):
+        for mes in range(7,8):
             for dia in range(1,31):
                 data=str(dia)+"/"+str(mes)+"/"+str(ano)
                 print('',data)
