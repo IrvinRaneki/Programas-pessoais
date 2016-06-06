@@ -20,7 +20,7 @@ def lookup(driver, data):
     ra="081641" #"094786"#"081641"
     nome="Irvin Gomes" #"Gabriel Roma" #"Irvin Gomes"#
     email="irvin.alemao@gmail.com" #"gabrielroma@gmail.com" #"irvin.alemao@gmail.com"#
-    motivo="Estágio / Bolsa"
+    motivo="E"
 
     http="https://docs.google.com/forms/d/1N3RHDZDFuXoSHU5TWuAfYYSGeUCqEPeAJZYJ3FLU69g/viewform?formkey=dEQwUWtDNm81Z0hnQnpfay1NUGhZUlE6MQ&fromEmail=true"
     #webbrowser.open_new(http) isso abre o navegador padrao
