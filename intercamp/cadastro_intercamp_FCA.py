@@ -56,7 +56,7 @@ if __name__ == "__main__":
         for mes in range(7,8):
             for dia in range(1,31):
                 data=str(dia)+"/"+str(mes)+"/"+str(ano)
-                print('',data)
+                print(data)
                 driver = init_driver()
                 lookup(driver, data)
                 time.sleep(0.5)
