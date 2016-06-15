@@ -1,10 +1,11 @@
+#include "Ea_Arquivos.h"
 #include <iostream>
-#include "Ea_arquivos.h"
 
 using namespace std;
 
 int main()
 {
-    abrir_arquivo();
+    Ea_Arquivos No;
+    No.abrir_arquivo();
     //inserir();
 }
