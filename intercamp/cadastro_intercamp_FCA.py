@@ -8,11 +8,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import webdriver
 
 
 def init_driver():
     driver = webdriver.Firefox()
-    driver.wait = WebDriverWait(driver, 5)
+    #driver = webdriver.Chrome()
+    driver.wait = WebDriverWait(driver, 0)
     return driver
 
 
