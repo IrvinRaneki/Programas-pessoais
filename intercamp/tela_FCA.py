@@ -59,7 +59,8 @@ class Packing(Frame):
 		h_chk=Checkbutton(self.parent,text="Limeira-Campinas - 23:00",variable=self.h).pack()
 
 		L5 = Label(self.parent, text="Mes(1 a 12)").pack()
-		Data=Entry(self.parent).pack()
+		self.mes=StringVar()
+		Data=Entry(self.parent, textvariable = self.mes).pack()
 
 		btn1 = Button(self.parent, text="Iniciar Cadastro", command=self.initCadastro).pack()
 		btn2 = Button(self.parent, text="Sair", command=self.onExit).pack()
@@ -83,10 +84,13 @@ class Packing(Frame):
 		f = self.f.get()
 		g = self.g.get()
 		h = self.h.get()
+		#mes=self.mes.get()
+
+		#print mes
 
 		os.system("python2 cadastro_intercamp_FCA.py "
 		+str(nameUser) + " " + str(sobreNomeUser) + " " + str(raUser) + " " + str(emailUser) + " "+ str(motivoUser) + " "
-		+str(a)+ " " +str(b)+ " " +str(c)+ " " +str(d)+ " " +str(e)+ " " +str(f)+ " " +str(g)+ " " +str(h))
+		+str(a)+ " " +str(b)+ " " +str(c)+ " " +str(d)+ " " +str(e)+ " " +str(f)+ " " +str(g)+ " " +str(h))#+ "" +str(mes))
 
 def main():
 	root = Tk()

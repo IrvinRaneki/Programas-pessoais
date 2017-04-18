@@ -89,9 +89,9 @@ def lookup(driver, data):
         box13.click()
 
         ##submi btn
-        #time.sleep(15)
-        #box8 = driver.find_element_by_name("submit")
-        #box8.click()
+        time.sleep(0.5)
+        box8 = driver.find_element_by_name("submit")
+        box8.click()
 
     except TimeoutException:
         print("Nao foi")
@@ -99,7 +99,10 @@ def lookup(driver, data):
 
 if __name__ == "__main__":
 
+    #mesUser=int(sys.argv[14])
+    #print mesUser
     for ano in range(2017,2018):
+        #for mes in range(mesUser,mesUser+1):
         for mes in range(4,5):
             for dia in range(1,31):
                 data=str(dia)+"/"+str(mes)+"/"+str(ano)
